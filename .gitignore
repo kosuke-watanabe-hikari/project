@@ -1,0 +1,11 @@
+# experiment results
+results/
+
+# binary / data
+*.pkl
+*.csv
+*.npy
+
+# python cache
+__pycache__/
+.ipynb_checkpoints/

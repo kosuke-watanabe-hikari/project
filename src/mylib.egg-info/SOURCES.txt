@@ -1,0 +1,10 @@
+setup.py
+mylib/__init__.py
+mylib/equilibria.py
+mylib/integrators.py
+mylib/models.py
+mylib/plotting.py
+mylib.egg-info/PKG-INFO
+mylib.egg-info/SOURCES.txt
+mylib.egg-info/dependency_links.txt
+mylib.egg-info/top_level.txt
