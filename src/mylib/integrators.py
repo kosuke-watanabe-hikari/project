@@ -158,13 +158,14 @@ import pickle
 from pathlib import Path
 
 def save_experiment(
-    results,
-    param_grid,
-    init_grid,
+    mode,
     model_name,
     exp_number,
     dt,
     t_max,
+    results="results",
+    param_grid="param_grid",
+    init_grid="init_grid",
     project_name="project",
     out_dir="results"
 ):
@@ -180,6 +181,8 @@ def save_experiment(
         使用したパラメータグリッド
     init_grid : dict
         使用した初期値グリッド
+    mode : str
+        "test" または "main" によって保存先を切り替える
     model_name : str
         数理モデル名(ディレクトリ名に使用)
     exp_number : int
@@ -203,11 +206,11 @@ def save_experiment(
     project_dir = Path(*cwd.parts[: project_index + 1])
     
     #project/results/model_name
-    base_dir =  project_dir / out_dir
+    base_dir =  project_dir / out_dir / mode
     model_dir = base_dir / model_name
     model_dir.mkdir(parents=True, exist_ok=True)
 
-    exp_tag = f"{model_name}_experiment_{exp_number:03}"
+    exp_tag = f"{mode}_{model_name}_experiment_{exp_number:03}"
 
     #results
     results_path = model_dir / f"{exp_tag}_results.pkl"
@@ -222,6 +225,7 @@ def save_experiment(
         "t_max": t_max,
         "param_grid": param_grid,
         "init_grid": init_grid,
+        "mode": mode
     }
 
     meta_path = model_dir / f"{exp_tag}_meta.pkl"
