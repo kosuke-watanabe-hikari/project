@@ -1,11 +1,25 @@
-# experiment results
-results/
+# Jupyter notebook
+*.ipynb
+.ipynb_checkpoints/
 
-# binary / data
+# Results / figures / outputs
+results/
+figs/
 *.pkl
+*.png
+*.jpg
+*.jpeg
+*.pdf
 *.csv
+*.h5
 *.npy
 
-# python cache
+# Python cache
 __pycache__/
-.ipynb_checkpoints/
+*.pyc
+*.pyo
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
